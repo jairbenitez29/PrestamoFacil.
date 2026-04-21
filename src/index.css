@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #0f1117;
+    color: #e2e8f0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  #root { min-height: 100vh; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-4 py-2.5 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-xl transition-all duration-200 shadow-md text-sm;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-4 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 font-medium rounded-xl transition-all duration-200 text-sm;
+  }
+  .btn-danger {
+    @apply inline-flex items-center gap-2 px-4 py-2.5 bg-red-600/20 hover:bg-red-600/30 border border-red-500/30 text-red-400 font-medium rounded-xl transition-all duration-200 text-sm;
+  }
+  .btn-gold {
+    @apply inline-flex items-center gap-2 px-4 py-2.5 bg-gold-500 hover:bg-gold-600 text-gray-900 font-semibold rounded-xl transition-all duration-200 shadow-md text-sm;
+  }
+  .card {
+    @apply bg-white/5 border border-white/10 rounded-2xl p-5 shadow-card;
+  }
+  .card-hover {
+    @apply card hover:bg-white/10 hover:border-white/20 hover:shadow-card-hover transition-all duration-200 cursor-pointer;
+  }
+  .input-field {
+    @apply w-full px-4 py-3 bg-white/5 border border-white/10 text-slate-100 placeholder-slate-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-sm;
+  }
+  .select-field {
+    @apply w-full px-4 py-3 bg-slate-800 border border-white/10 text-slate-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-sm appearance-none;
+  }
+  .label-field {
+    @apply block text-sm font-medium text-slate-300 mb-1.5;
+  }
+  .badge-green {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/15 text-emerald-400 border border-emerald-500/20;
+  }
+  .badge-yellow {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-500/15 text-yellow-400 border border-yellow-500/20;
+  }
+  .badge-red {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-500/15 text-red-400 border border-red-500/20;
+  }
+  .badge-blue {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-500/15 text-primary-400 border border-primary-500/20;
+  }
+  .stat-card {
+    @apply card flex flex-col gap-3;
+  }
+  .section-title {
+    @apply text-xl font-semibold text-white;
+  }
+  .modal-overlay {
+    @apply fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fade-in;
+  }
+  .modal-box {
+    @apply bg-slate-900 border border-white/10 rounded-2xl shadow-2xl w-full max-w-lg animate-slide-up;
+  }
+  .table-header {
+    @apply text-xs font-semibold text-slate-400 uppercase tracking-wider;
+  }
+  .table-row {
+    @apply border-b border-white/5 hover:bg-white/10 transition-colors duration-150;
+  }
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-200 text-sm font-medium;
+  }
+  .sidebar-link-active {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl bg-primary-600/20 text-primary-400 border border-primary-500/20 text-sm font-medium;
+  }
+}
+
+@layer utilities {
+  .bg-dim-3  { background-color: rgba(255,255,255,0.03); }
+  .bg-dim-8  { background-color: rgba(255,255,255,0.08); }
+  .hover-bg-dim-3:hover { background-color: rgba(255,255,255,0.03); }
+  .hover-bg-dim-8:hover { background-color: rgba(255,255,255,0.08); }
+  .text-balance { text-wrap: balance; }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.1) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar { width: 4px; }
+  .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.1);
+    border-radius: 99px;
+  }
+}

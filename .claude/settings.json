@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create *)",
+      "Read(//c/Users/ASUS/OneDrive/Desktop/**)",
+      "Bash(cp -r \"/c/Users/ASUS/OneDrive/Desktop/prestamo-facil-app/.\" \"/c/Users/ASUS/OneDrive/Desktop/prestamo facil/\")",
+      "Bash(rm -rf \"/c/Users/ASUS/OneDrive/Desktop/prestamo-facil-app\")",
+      "Bash(npm run *)",
+      "Read(//c/c/Users/ASUS/OneDrive/Desktop/prestamo facil/node_modules/**)",
+      "Bash(npm install *)",
+      "Bash(node -e \"const tw = require\\('./node_modules/tailwindcss/package.json'\\); console.log\\(tw.version\\)\")"
+    ]
+  }
+}
