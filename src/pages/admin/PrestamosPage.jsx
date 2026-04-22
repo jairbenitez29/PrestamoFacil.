@@ -303,7 +303,7 @@ export function PrestamosPage() {
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="label-field">Monto prestado (COP) *</label>
-              <input className="input-field" type="number" required min="1" step="1000"
+              <input className="input-field" type="number" required min="1" step="1"
                 value={formulario.monto_prestado}
                 onChange={e => setFormulario(f => ({ ...f, monto_prestado: e.target.value }))}
                 placeholder="500000" />
@@ -412,7 +412,7 @@ export function PrestamosPage() {
             </div>
             <div>
               <label className="label-field">Monto del abono (COP) *</label>
-              <input className="input-field" type="number" required min="1" step="1000"
+              <input className="input-field" type="number" required min="1" step="1"
                 value={montoAbono} onChange={e => setMontoAbono(e.target.value)} placeholder="100000" />
             </div>
             <div>

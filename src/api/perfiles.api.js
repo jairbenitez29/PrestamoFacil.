@@ -1,4 +1,5 @@
 import { supabase } from './supabaseClient'
+import { supabaseAdmin } from './supabaseAdmin'
 
 export async function obtenerPerfilPorId(userId) {
   const { data, error } = await supabase
@@ -21,14 +22,22 @@ export async function obtenerTodosLosCobradores() {
 }
 
 export async function crearCobrador({ nombre_completo, email, telefono, password }) {
-  const { data: authData, error: authError } = await supabase.auth.signUp({
+  const { data: authData, error: authError } = await supabaseAdmin.auth.admin.createUser({
     email,
     password,
-    options: {
-      data: { nombre_completo, rol: 'cobrador', telefono },
-    },
+    email_confirm: true,
+    user_metadata: { nombre_completo, rol: 'cobrador', telefono },
   })
   if (authError) throw authError
+
+  // Actualizar el perfil con los datos completos
+  if (authData?.user?.id) {
+    await supabase
+      .from('perfiles')
+      .update({ nombre_completo, telefono, rol: 'cobrador' })
+      .eq('id', authData.user.id)
+  }
+
   return authData
 }
 

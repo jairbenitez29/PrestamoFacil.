@@ -195,7 +195,7 @@ export function CobCobrosPage() {
                 <DollarSign size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500" />
                 <input
                   className="input-field pl-10 text-lg font-semibold"
-                  type="number" required min="1" step="1000"
+                  type="number" required min="1" step="1"
                   value={monto} onChange={e => setMonto(e.target.value)}
                   placeholder="0"
                   autoFocus

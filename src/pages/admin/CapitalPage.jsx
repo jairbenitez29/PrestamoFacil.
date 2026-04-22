@@ -184,7 +184,7 @@ export function CapitalPage() {
           </div>
           <div>
             <label className="label-field">Monto (COP) *</label>
-            <input className="input-field" type="number" required min="1" step="1000"
+            <input className="input-field" type="number" required min="1" step="1"
               value={formulario.monto} onChange={e => setFormulario(f => ({ ...f, monto: e.target.value }))}
               placeholder="1000000" />
           </div>
