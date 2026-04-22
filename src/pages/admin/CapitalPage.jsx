@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Plus, TrendingUp, TrendingDown, Wallet, DollarSign, ArrowUpRight, ArrowDownRight } from 'lucide-react'
+import { Plus, TrendingUp, TrendingDown, Wallet, DollarSign, ArrowUpRight, ArrowDownRight, ArrowUp, ArrowDown } from 'lucide-react'
 import { obtenerResumenCapital, obtenerMovimientosDeCapital, registrarMovimientoDeCapital } from '../../api/capital.api'
 import { useAuth } from '../../contexts/AuthContext'
 import { Modal } from '../../components/ui/Modal'
@@ -177,7 +177,10 @@ export function CapitalPage() {
                       : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/10'
                   }`}
                 >
-                  {tipo === 'ingreso' ? '↑ Ingreso' : '↓ Egreso'}
+                  {tipo === 'ingreso'
+                    ? <><ArrowUp size={14} /> Ingreso</>
+                    : <><ArrowDown size={14} /> Egreso</>
+                  }
                 </button>
               ))}
             </div>

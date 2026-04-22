@@ -9,7 +9,10 @@
       "Read(//c/c/Users/ASUS/OneDrive/Desktop/prestamo facil/node_modules/**)",
       "Bash(npm install *)",
       "Bash(node -e \"const tw = require\\('./node_modules/tailwindcss/package.json'\\); console.log\\(tw.version\\)\")",
-      "Bash(npx kill-port *)"
+      "Bash(npx kill-port *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)"
     ]
   }
 }

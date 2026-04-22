@@ -84,7 +84,7 @@ export function LoginPage() {
                   type={verPassword ? 'text' : 'password'}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="••••••••"
+                  placeholder="Contraseña"
                   required
                   autoComplete="current-password"
                   className="input-field pl-10 pr-10"

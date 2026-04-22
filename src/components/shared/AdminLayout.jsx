@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import {
   LayoutDashboard, Users, CreditCard, UserCheck,
-  Wallet, Menu, LogOut, ChevronRight, Bell
+  Wallet, Menu, LogOut, Bell
 } from 'lucide-react'
 import { useAuth } from '../../contexts/AuthContext'
 
@@ -72,7 +72,6 @@ export function AdminLayout() {
               >
                 <Icon size={17} />
                 <span className="flex-1">{label}</span>
-                <ChevronRight size={13} className="opacity-30" />
               </NavLink>
             ))}
           </nav>

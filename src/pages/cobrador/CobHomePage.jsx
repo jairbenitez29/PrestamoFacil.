@@ -82,7 +82,7 @@ export function CobHomePage() {
         </div>
         <div className="card text-center py-4">
           <p className="text-lg font-bold text-gold-400 leading-tight">
-            {formatearMoneda(totalPendiente).replace('$', '').replace('.000', 'K')}
+            {formatearMoneda(totalPendiente)}
           </p>
           <p className="text-slate-500 text-xs mt-0.5">Por cobrar</p>
         </div>
