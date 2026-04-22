@@ -99,60 +99,6 @@ export function ClientesPage() {
     setModalCrear(true)
   }
 
-  const FormularioCliente = ({ onSubmit }) => (
-    <form onSubmit={onSubmit} className="space-y-4">
-      {error && <p className="text-red-400 text-sm bg-red-500/10 border border-red-500/20 px-3 py-2.5 rounded-xl">{error}</p>}
-      <div className="grid grid-cols-2 gap-3">
-        <div className="col-span-2">
-          <label className="label-field">Nombre completo</label>
-          <input className="input-field" required value={formulario.nombre_completo}
-            onChange={e => setFormulario(f => ({ ...f, nombre_completo: e.target.value }))}
-            placeholder="Juan García López" />
-        </div>
-        <div>
-          <label className="label-field">Cédula</label>
-          <input className="input-field" required value={formulario.cedula}
-            onChange={e => setFormulario(f => ({ ...f, cedula: e.target.value }))}
-            placeholder="12345678" />
-        </div>
-        <div>
-          <label className="label-field">Teléfono</label>
-          <input className="input-field" value={formulario.telefono}
-            onChange={e => setFormulario(f => ({ ...f, telefono: e.target.value }))}
-            placeholder="3001234567" />
-        </div>
-        <div className="col-span-2">
-          <label className="label-field">Dirección</label>
-          <input className="input-field" value={formulario.direccion}
-            onChange={e => setFormulario(f => ({ ...f, direccion: e.target.value }))}
-            placeholder="Cra 12 # 34-56" />
-        </div>
-        <div>
-          <label className="label-field">Barrio</label>
-          <input className="input-field" value={formulario.barrio}
-            onChange={e => setFormulario(f => ({ ...f, barrio: e.target.value }))}
-            placeholder="Centro" />
-        </div>
-        <div>
-          <label className="label-field">Cobrador asignado</label>
-          <select className="select-field" value={formulario.cobrador_id}
-            onChange={e => setFormulario(f => ({ ...f, cobrador_id: e.target.value }))}>
-            <option value="">Sin asignar</option>
-            {cobradores.filter(c => c.activo).map(c => (
-              <option key={c.id} value={c.id}>{c.nombre_completo}</option>
-            ))}
-          </select>
-        </div>
-      </div>
-      <div className="flex gap-3 pt-2">
-        <button type="submit" disabled={guardando} className="btn-primary flex-1 justify-center">
-          {guardando ? <Spinner size="sm" /> : null}
-          {guardando ? 'Guardando...' : 'Guardar cliente'}
-        </button>
-      </div>
-    </form>
-  )
-
   if (cargando) {
     return <div className="flex items-center justify-center h-64"><Spinner size="lg" /></div>
   }
@@ -293,12 +239,108 @@ export function ClientesPage() {
 
       {/* Modal Crear */}
       <Modal open={modalCrear} onClose={() => setModalCrear(false)} title="Nuevo cliente">
-        <FormularioCliente onSubmit={handleCrear} />
+        <form onSubmit={handleCrear} className="space-y-4">
+          {error && <p className="text-red-400 text-sm bg-red-500/10 border border-red-500/20 px-3 py-2.5 rounded-xl">{error}</p>}
+          <div className="grid grid-cols-2 gap-3">
+            <div className="col-span-2">
+              <label className="label-field">Nombre completo</label>
+              <input className="input-field" required value={formulario.nombre_completo}
+                onChange={e => setFormulario(f => ({ ...f, nombre_completo: e.target.value }))}
+                placeholder="Juan García López" />
+            </div>
+            <div>
+              <label className="label-field">Cédula</label>
+              <input className="input-field" required value={formulario.cedula}
+                onChange={e => setFormulario(f => ({ ...f, cedula: e.target.value }))}
+                placeholder="12345678" />
+            </div>
+            <div>
+              <label className="label-field">Teléfono</label>
+              <input className="input-field" value={formulario.telefono}
+                onChange={e => setFormulario(f => ({ ...f, telefono: e.target.value }))}
+                placeholder="3001234567" />
+            </div>
+            <div className="col-span-2">
+              <label className="label-field">Dirección</label>
+              <input className="input-field" value={formulario.direccion}
+                onChange={e => setFormulario(f => ({ ...f, direccion: e.target.value }))}
+                placeholder="Cra 12 # 34-56" />
+            </div>
+            <div>
+              <label className="label-field">Barrio</label>
+              <input className="input-field" value={formulario.barrio}
+                onChange={e => setFormulario(f => ({ ...f, barrio: e.target.value }))}
+                placeholder="Centro" />
+            </div>
+            <div>
+              <label className="label-field">Cobrador asignado</label>
+              <select className="select-field" value={formulario.cobrador_id}
+                onChange={e => setFormulario(f => ({ ...f, cobrador_id: e.target.value }))}>
+                <option value="">Sin asignar</option>
+                {cobradores.filter(c => c.activo).map(c => (
+                  <option key={c.id} value={c.id}>{c.nombre_completo}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <button type="submit" disabled={guardando} className="btn-primary w-full justify-center py-3">
+            {guardando ? <Spinner size="sm" /> : null}
+            {guardando ? 'Guardando...' : 'Guardar cliente'}
+          </button>
+        </form>
       </Modal>
 
       {/* Modal Editar */}
       <Modal open={!!modalEditar} onClose={() => setModalEditar(null)} title="Editar cliente">
-        <FormularioCliente onSubmit={handleEditar} />
+        <form onSubmit={handleEditar} className="space-y-4">
+          {error && <p className="text-red-400 text-sm bg-red-500/10 border border-red-500/20 px-3 py-2.5 rounded-xl">{error}</p>}
+          <div className="grid grid-cols-2 gap-3">
+            <div className="col-span-2">
+              <label className="label-field">Nombre completo</label>
+              <input className="input-field" required value={formulario.nombre_completo}
+                onChange={e => setFormulario(f => ({ ...f, nombre_completo: e.target.value }))}
+                placeholder="Juan García López" />
+            </div>
+            <div>
+              <label className="label-field">Cédula</label>
+              <input className="input-field" required value={formulario.cedula}
+                onChange={e => setFormulario(f => ({ ...f, cedula: e.target.value }))}
+                placeholder="12345678" />
+            </div>
+            <div>
+              <label className="label-field">Teléfono</label>
+              <input className="input-field" value={formulario.telefono}
+                onChange={e => setFormulario(f => ({ ...f, telefono: e.target.value }))}
+                placeholder="3001234567" />
+            </div>
+            <div className="col-span-2">
+              <label className="label-field">Dirección</label>
+              <input className="input-field" value={formulario.direccion}
+                onChange={e => setFormulario(f => ({ ...f, direccion: e.target.value }))}
+                placeholder="Cra 12 # 34-56" />
+            </div>
+            <div>
+              <label className="label-field">Barrio</label>
+              <input className="input-field" value={formulario.barrio}
+                onChange={e => setFormulario(f => ({ ...f, barrio: e.target.value }))}
+                placeholder="Centro" />
+            </div>
+            <div>
+              <label className="label-field">Cobrador asignado</label>
+              <select className="select-field" value={formulario.cobrador_id}
+                onChange={e => setFormulario(f => ({ ...f, cobrador_id: e.target.value }))}>
+                <option value="">Sin asignar</option>
+                {cobradores.filter(c => c.activo).map(c => (
+                  <option key={c.id} value={c.id}>{c.nombre_completo}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <button type="submit" disabled={guardando} className="btn-primary w-full justify-center py-3">
+            {guardando ? <Spinner size="sm" /> : null}
+            {guardando ? 'Guardando...' : 'Guardar cambios'}
+          </button>
+        </form>
       </Modal>
 
       {/* Modal Ver detalle */}
