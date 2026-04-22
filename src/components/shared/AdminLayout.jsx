@@ -32,10 +32,10 @@ export function AdminLayout() {
 
       {/* Sidebar */}
       <aside className={`
-        fixed top-0 left-0 h-full w-60 bg-[#0d0f18] z-30
+        fixed top-0 left-0 h-screen w-60 bg-[#0d0f18] z-30
         flex flex-col justify-between transition-transform duration-300
         ${sidebarAbierto ? 'translate-x-0' : '-translate-x-full'}
-        lg:translate-x-0 lg:static lg:z-auto
+        lg:translate-x-0 lg:sticky lg:top-0 lg:z-auto lg:flex-shrink-0
       `}>
 
         {/* Parte superior: logo + nav */}
