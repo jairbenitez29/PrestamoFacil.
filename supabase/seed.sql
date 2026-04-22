@@ -61,8 +61,7 @@ BEGIN
     (gen_random_uuid(), 'Pedro Antonio Ruiz',   '10034567', '3123334444', 'Cra 12 # 22-40',  'La Esperanza','activo', v_cobrador1, v_admin_id),
     (gen_random_uuid(), 'Ana Lucía Martínez',   '10045678', '3134445555', 'Cl 15 # 8-30',    'El Bosque',   'activo', v_cobrador2, v_admin_id),
     (gen_random_uuid(), 'Luis Eduardo García',  '10056789', '3145556666', 'Cra 20 # 5-12',   'El Prado',    'activo', v_cobrador2, v_admin_id),
-    (gen_random_uuid(), 'Carmen Rosa Díaz',     '10067890', '3156667777', 'Cl 3 # 15-25',    'El Centro',   'activo', v_cobrador2, v_admin_id)
-  RETURNING id INTO v_cliente1;
+    (gen_random_uuid(), 'Carmen Rosa Díaz',     '10067890', '3156667777', 'Cl 3 # 15-25',    'El Centro',   'activo', v_cobrador2, v_admin_id);
 
   -- Recuperar IDs de clientes por cédula
   SELECT id INTO v_cliente1 FROM public.clientes WHERE cedula = '10012345';
