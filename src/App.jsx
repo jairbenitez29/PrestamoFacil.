@@ -9,6 +9,7 @@ import { ClientesPage } from './pages/admin/ClientesPage'
 import { PrestamosPage } from './pages/admin/PrestamosPage'
 import { CobradoresPage } from './pages/admin/CobradoresPage'
 import { CapitalPage } from './pages/admin/CapitalPage'
+import { ReportesPage } from './pages/admin/ReportesPage'
 import { CobHomePage } from './pages/cobrador/CobHomePage'
 import { CobClientesPage } from './pages/cobrador/CobClientesPage'
 import { CobCobrosPage } from './pages/cobrador/CobCobrosPage'
@@ -31,6 +32,7 @@ export default function App() {
             <Route path="prestamos" element={<PrestamosPage />} />
             <Route path="cobradores" element={<CobradoresPage />} />
             <Route path="capital" element={<CapitalPage />} />
+            <Route path="reportes" element={<ReportesPage />} />
           </Route>
 
           <Route path="/cobrador" element={

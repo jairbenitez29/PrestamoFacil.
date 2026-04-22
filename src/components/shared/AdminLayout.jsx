@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import {
   LayoutDashboard, Users, CreditCard, UserCheck,
-  Wallet, Menu, LogOut, Bell
+  Wallet, Menu, LogOut, Bell, FileText
 } from 'lucide-react'
 import { useAuth } from '../../contexts/AuthContext'
 
@@ -12,6 +12,7 @@ const navItems = [
   { to: '/admin/prestamos',  label: 'Préstamos',  icon: CreditCard },
   { to: '/admin/cobradores', label: 'Cobradores', icon: UserCheck },
   { to: '/admin/capital',    label: 'Capital',    icon: Wallet },
+  { to: '/admin/reportes',  label: 'Reportes',   icon: FileText },
 ]
 
 export function AdminLayout() {
