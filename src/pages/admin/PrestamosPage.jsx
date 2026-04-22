@@ -285,7 +285,7 @@ export function PrestamosPage() {
         <form onSubmit={handleCrearPrestamo} className="space-y-4">
           {error && <p className="text-red-400 text-sm bg-red-500/10 border border-red-500/20 px-3 py-2.5 rounded-xl">{error}</p>}
           <div>
-            <label className="label-field">Cliente *</label>
+            <label className="label-field">Cliente</label>
             <select className="select-field" required value={formulario.cliente_id}
               onChange={e => setFormulario(f => ({ ...f, cliente_id: e.target.value }))}>
               <option value="">Seleccionar cliente...</option>
@@ -293,7 +293,7 @@ export function PrestamosPage() {
             </select>
           </div>
           <div>
-            <label className="label-field">Cobrador *</label>
+            <label className="label-field">Cobrador</label>
             <select className="select-field" required value={formulario.cobrador_id}
               onChange={e => setFormulario(f => ({ ...f, cobrador_id: e.target.value }))}>
               <option value="">Seleccionar cobrador...</option>
@@ -302,7 +302,7 @@ export function PrestamosPage() {
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="label-field">Monto prestado (COP) *</label>
+              <label className="label-field">Monto prestado (COP)</label>
               <input className="input-field" type="number" required min="1" step="1"
                 value={formulario.monto_prestado}
                 onChange={e => setFormulario(f => ({ ...f, monto_prestado: e.target.value }))}
@@ -322,7 +322,7 @@ export function PrestamosPage() {
                 onChange={e => setFormulario(f => ({ ...f, fecha_inicio: e.target.value }))} />
             </div>
             <div>
-              <label className="label-field">Fecha vencimiento *</label>
+              <label className="label-field">Fecha vencimiento</label>
               <input className="input-field" type="date" required
                 value={formulario.fecha_vencimiento}
                 onChange={e => setFormulario(f => ({ ...f, fecha_vencimiento: e.target.value }))} />
@@ -411,7 +411,7 @@ export function PrestamosPage() {
               <p className="text-slate-400 mt-1">Saldo pendiente: <span className="text-gold-400 font-bold">{formatearMoneda(modalAbono.calculo.saldo)}</span></p>
             </div>
             <div>
-              <label className="label-field">Monto del abono (COP) *</label>
+              <label className="label-field">Monto del abono (COP)</label>
               <input className="input-field" type="number" required min="1" step="1"
                 value={montoAbono} onChange={e => setMontoAbono(e.target.value)} placeholder="100000" />
             </div>

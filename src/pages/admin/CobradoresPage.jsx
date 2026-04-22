@@ -160,13 +160,13 @@ export function CobradoresPage() {
         <form onSubmit={handleCrear} className="space-y-4">
           {error && <p className="text-red-400 text-sm bg-red-500/10 border border-red-500/20 px-3 py-2.5 rounded-xl">{error}</p>}
           <div>
-            <label className="label-field">Nombre completo *</label>
+            <label className="label-field">Nombre completo</label>
             <input className="input-field" required value={formulario.nombre_completo}
               onChange={e => setFormulario(f => ({ ...f, nombre_completo: e.target.value }))}
               placeholder="Carlos Gómez" />
           </div>
           <div>
-            <label className="label-field">Correo electrónico *</label>
+            <label className="label-field">Correo electrónico</label>
             <input className="input-field" type="email" required value={formulario.email}
               onChange={e => setFormulario(f => ({ ...f, email: e.target.value }))}
               placeholder="cobrador@ejemplo.com" />
@@ -178,7 +178,7 @@ export function CobradoresPage() {
               placeholder="3001234567" />
           </div>
           <div>
-            <label className="label-field">Contraseña temporal *</label>
+            <label className="label-field">Contraseña temporal</label>
             <div className="relative">
               <input
                 className="input-field pr-20"

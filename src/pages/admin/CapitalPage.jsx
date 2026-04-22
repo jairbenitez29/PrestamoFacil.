@@ -186,13 +186,13 @@ export function CapitalPage() {
             </div>
           </div>
           <div>
-            <label className="label-field">Monto (COP) *</label>
+            <label className="label-field">Monto (COP)</label>
             <input className="input-field" type="number" required min="1" step="1"
               value={formulario.monto} onChange={e => setFormulario(f => ({ ...f, monto: e.target.value }))}
               placeholder="1000000" />
           </div>
           <div>
-            <label className="label-field">Descripción *</label>
+            <label className="label-field">Descripción</label>
             <input className="input-field" required value={formulario.descripcion}
               onChange={e => setFormulario(f => ({ ...f, descripcion: e.target.value }))}
               placeholder="Ej: Capital inicial del negocio" />

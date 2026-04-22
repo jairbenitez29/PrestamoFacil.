@@ -190,7 +190,7 @@ export function CobCobrosPage() {
             )}
 
             <div>
-              <label className="label-field">Monto a cobrar (COP) *</label>
+              <label className="label-field">Monto a cobrar (COP)</label>
               <div className="relative">
                 <DollarSign size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500" />
                 <input

@@ -104,13 +104,13 @@ export function ClientesPage() {
       {error && <p className="text-red-400 text-sm bg-red-500/10 border border-red-500/20 px-3 py-2.5 rounded-xl">{error}</p>}
       <div className="grid grid-cols-2 gap-3">
         <div className="col-span-2">
-          <label className="label-field">Nombre completo *</label>
+          <label className="label-field">Nombre completo</label>
           <input className="input-field" required value={formulario.nombre_completo}
             onChange={e => setFormulario(f => ({ ...f, nombre_completo: e.target.value }))}
             placeholder="Juan García López" />
         </div>
         <div>
-          <label className="label-field">Cédula *</label>
+          <label className="label-field">Cédula</label>
           <input className="input-field" required value={formulario.cedula}
             onChange={e => setFormulario(f => ({ ...f, cedula: e.target.value }))}
             placeholder="12345678" />
