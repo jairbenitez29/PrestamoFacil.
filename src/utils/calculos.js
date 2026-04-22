@@ -1,20 +1,36 @@
 /**
- * Calcula el saldo actual de un préstamo considerando interés y mora.
- * Regla: 20% mensual de interés. Si hay mora, +20% por cada mes vencido.
+ * Calcula el saldo actual de un préstamo con interés simple mensual.
+ *
+ * Regla del negocio:
+ *   - meses_plazo  = meses entre fecha_inicio y fecha_vencimiento (interés del periodo pactado)
+ *   - interés_normal = monto × tasa × meses_plazo
+ *   - interés_mora   = monto × tasa × meses_mora  (se acumula mes a mes tras vencimiento)
+ *   - total_deuda    = monto + interés_normal + interés_mora
  */
 export function calcularSaldoPrestamo(prestamo, abonos = []) {
-  const { monto_prestado, tasa_interes_mensual, meses_mora } = prestamo
+  const { monto_prestado, tasa_interes_mensual, meses_mora, fecha_inicio, fecha_vencimiento } = prestamo
   const totalAbonado = abonos.reduce((sum, a) => sum + a.monto, 0)
+  const tasa = tasa_interes_mensual / 100
 
-  const interesMensual = monto_prestado * (tasa_interes_mensual / 100)
-  const interesTotal = interesMensual + (monto_prestado * (tasa_interes_mensual / 100) * meses_mora)
-  const totalDeuda = monto_prestado + interesTotal
-  const saldo = Math.max(0, totalDeuda - totalAbonado)
+  // Meses del plazo pactado (interés simple sobre el periodo acordado)
+  let mesesPlazo = 1
+  if (fecha_inicio && fecha_vencimiento) {
+    const inicio = new Date(fecha_inicio + 'T00:00:00')
+    const fin    = new Date(fecha_vencimiento + 'T00:00:00')
+    const diffMs = fin - inicio
+    mesesPlazo = Math.max(1, Math.round(diffMs / (1000 * 60 * 60 * 24 * 30)))
+  }
+
+  const interesNormal = monto_prestado * tasa * mesesPlazo
+  const interesMora   = monto_prestado * tasa * (meses_mora || 0)
+  const totalDeuda    = monto_prestado + interesNormal + interesMora
+  const saldo         = Math.max(0, totalDeuda - totalAbonado)
 
   return {
     montoOriginal: monto_prestado,
-    interesNormal: interesMensual,
-    interesMora: monto_prestado * (tasa_interes_mensual / 100) * meses_mora,
+    mesesPlazo,
+    interesNormal,
+    interesMora,
     totalDeuda,
     totalAbonado,
     saldo,

@@ -331,27 +331,32 @@ export function PrestamosPage() {
             </div>
           </div>
 
-          {formulario.monto_prestado && (
-            <div className="p-3 bg-primary-500/10 border border-primary-500/20 rounded-xl space-y-1 text-sm">
-              <p className="text-primary-300 font-medium">Resumen del préstamo</p>
-              <div className="flex justify-between text-slate-400">
-                <span>Capital prestado</span>
-                <span className="text-white">{formatearMoneda(parseFloat(formulario.monto_prestado) || 0)}</span>
+          {formulario.monto_prestado && formulario.fecha_inicio && formulario.fecha_vencimiento && (() => {
+            const monto = parseFloat(formulario.monto_prestado) || 0
+            const tasa  = parseFloat(formulario.tasa_interes_mensual) / 100
+            const inicio = new Date(formulario.fecha_inicio + 'T00:00:00')
+            const fin    = new Date(formulario.fecha_vencimiento + 'T00:00:00')
+            const meses  = Math.max(1, Math.round((fin - inicio) / (1000 * 60 * 60 * 24 * 30)))
+            const interes = monto * tasa * meses
+            const total   = monto + interes
+            return (
+              <div className="p-3 bg-primary-500/10 border border-primary-500/20 rounded-xl space-y-1 text-sm">
+                <p className="text-primary-300 font-medium">Resumen del préstamo</p>
+                <div className="flex justify-between text-slate-400">
+                  <span>Capital prestado</span>
+                  <span className="text-white">{formatearMoneda(monto)}</span>
+                </div>
+                <div className="flex justify-between text-slate-400">
+                  <span>Interés ({formulario.tasa_interes_mensual}% × {meses} mes{meses !== 1 ? 'es' : ''})</span>
+                  <span className="text-gold-400">{formatearMoneda(interes)}</span>
+                </div>
+                <div className="flex justify-between font-semibold border-t border-white/10 pt-1 mt-1">
+                  <span className="text-white">Total a cobrar</span>
+                  <span className="text-white">{formatearMoneda(total)}</span>
+                </div>
               </div>
-              <div className="flex justify-between text-slate-400">
-                <span>Interés ({formulario.tasa_interes_mensual}%)</span>
-                <span className="text-gold-400">
-                  {formatearMoneda((parseFloat(formulario.monto_prestado) || 0) * (parseFloat(formulario.tasa_interes_mensual) / 100))}
-                </span>
-              </div>
-              <div className="flex justify-between font-semibold border-t border-white/10 pt-1 mt-1">
-                <span className="text-white">Total a cobrar</span>
-                <span className="text-white">
-                  {formatearMoneda((parseFloat(formulario.monto_prestado) || 0) * (1 + parseFloat(formulario.tasa_interes_mensual) / 100))}
-                </span>
-              </div>
-            </div>
-          )}
+            )
+          })()}
 
           <button type="submit" disabled={guardando} className="btn-primary w-full justify-center py-3">
             {guardando ? <Spinner size="sm" /> : null}
