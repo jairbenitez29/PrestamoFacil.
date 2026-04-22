@@ -76,7 +76,7 @@ export function DashboardPage() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
           <h1 className="text-2xl font-bold text-white">
-            Bienvenido, {perfil?.nombre_completo?.split(' ')[0]} 👋
+            Bienvenido, {perfil?.nombre_completo?.split(' ')[0]}
           </h1>
           <p className="text-slate-500 text-sm mt-0.5 capitalize">{hoy}</p>
         </div>

@@ -71,7 +71,7 @@ export function CobCobrosPage() {
         await actualizarEstadoPrestamo(modalAbono.id, 'completado')
       }
 
-      setExito(`✓ Abono de ${formatearMoneda(montoNum)} registrado exitosamente`)
+      setExito(`Abono de ${formatearMoneda(montoNum)} registrado exitosamente`)
       setTimeout(() => {
         setModalAbono(null)
         setExito('')

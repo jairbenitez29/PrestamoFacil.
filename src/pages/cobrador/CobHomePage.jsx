@@ -50,7 +50,7 @@ export function CobHomePage() {
       {/* Saludo */}
       <div className="pt-2">
         <h1 className="text-xl font-bold text-white">
-          Hola, {perfil?.nombre_completo?.split(' ')[0]} 👋
+          Hola, {perfil?.nombre_completo?.split(' ')[0]}
         </h1>
         <p className="text-slate-500 text-sm capitalize">{hoy}</p>
       </div>
