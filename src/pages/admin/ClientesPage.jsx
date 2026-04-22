@@ -250,14 +250,14 @@ export function ClientesPage() {
             </div>
             <div>
               <label className="label-field">Cédula</label>
-              <input className="input-field" required value={formulario.cedula}
-                onChange={e => setFormulario(f => ({ ...f, cedula: e.target.value }))}
+              <input className="input-field" required inputMode="numeric" value={formulario.cedula}
+                onChange={e => setFormulario(f => ({ ...f, cedula: e.target.value.replace(/\D/g, '') }))}
                 placeholder="12345678" />
             </div>
             <div>
               <label className="label-field">Teléfono</label>
-              <input className="input-field" value={formulario.telefono}
-                onChange={e => setFormulario(f => ({ ...f, telefono: e.target.value }))}
+              <input className="input-field" inputMode="numeric" value={formulario.telefono}
+                onChange={e => setFormulario(f => ({ ...f, telefono: e.target.value.replace(/\D/g, '') }))}
                 placeholder="3001234567" />
             </div>
             <div className="col-span-2">
@@ -303,14 +303,14 @@ export function ClientesPage() {
             </div>
             <div>
               <label className="label-field">Cédula</label>
-              <input className="input-field" required value={formulario.cedula}
-                onChange={e => setFormulario(f => ({ ...f, cedula: e.target.value }))}
+              <input className="input-field" required inputMode="numeric" value={formulario.cedula}
+                onChange={e => setFormulario(f => ({ ...f, cedula: e.target.value.replace(/\D/g, '') }))}
                 placeholder="12345678" />
             </div>
             <div>
               <label className="label-field">Teléfono</label>
-              <input className="input-field" value={formulario.telefono}
-                onChange={e => setFormulario(f => ({ ...f, telefono: e.target.value }))}
+              <input className="input-field" inputMode="numeric" value={formulario.telefono}
+                onChange={e => setFormulario(f => ({ ...f, telefono: e.target.value.replace(/\D/g, '') }))}
                 placeholder="3001234567" />
             </div>
             <div className="col-span-2">

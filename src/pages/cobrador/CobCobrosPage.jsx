@@ -197,6 +197,7 @@ export function CobCobrosPage() {
                   className="input-field pl-10 text-lg font-semibold"
                   type="number" required min="1" step="1"
                   value={monto} onChange={e => setMonto(e.target.value)}
+                  onKeyDown={e => ['e','E','+','-',','].includes(e.key) && e.preventDefault()}
                   placeholder="0"
                   autoFocus
                 />

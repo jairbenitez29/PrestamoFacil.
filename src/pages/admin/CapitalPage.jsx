@@ -189,6 +189,7 @@ export function CapitalPage() {
             <label className="label-field">Monto (COP)</label>
             <input className="input-field" type="number" required min="1" step="1"
               value={formulario.monto} onChange={e => setFormulario(f => ({ ...f, monto: e.target.value }))}
+              onKeyDown={e => ['e','E','+','-',','].includes(e.key) && e.preventDefault()}
               placeholder="1000000" />
           </div>
           <div>

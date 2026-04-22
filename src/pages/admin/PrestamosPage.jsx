@@ -306,6 +306,7 @@ export function PrestamosPage() {
               <input className="input-field" type="number" required min="1" step="1"
                 value={formulario.monto_prestado}
                 onChange={e => setFormulario(f => ({ ...f, monto_prestado: e.target.value }))}
+                onKeyDown={e => ['e','E','+','-',','].includes(e.key) && e.preventDefault()}
                 placeholder="500000" />
             </div>
             <div>
@@ -313,6 +314,7 @@ export function PrestamosPage() {
               <input className="input-field" type="number" min="1" max="100"
                 value={formulario.tasa_interes_mensual}
                 onChange={e => setFormulario(f => ({ ...f, tasa_interes_mensual: e.target.value }))}
+                onKeyDown={e => ['e','E','+','-',','].includes(e.key) && e.preventDefault()}
               />
             </div>
             <div>
@@ -413,7 +415,9 @@ export function PrestamosPage() {
             <div>
               <label className="label-field">Monto del abono (COP)</label>
               <input className="input-field" type="number" required min="1" step="1"
-                value={montoAbono} onChange={e => setMontoAbono(e.target.value)} placeholder="100000" />
+                value={montoAbono} onChange={e => setMontoAbono(e.target.value)}
+                onKeyDown={e => ['e','E','+','-',','].includes(e.key) && e.preventDefault()}
+                placeholder="100000" />
             </div>
             <div>
               <label className="label-field">Observación (opcional)</label>

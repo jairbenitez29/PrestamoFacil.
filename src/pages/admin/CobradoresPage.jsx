@@ -173,8 +173,8 @@ export function CobradoresPage() {
           </div>
           <div>
             <label className="label-field">Teléfono</label>
-            <input className="input-field" value={formulario.telefono}
-              onChange={e => setFormulario(f => ({ ...f, telefono: e.target.value }))}
+            <input className="input-field" inputMode="numeric" value={formulario.telefono}
+              onChange={e => setFormulario(f => ({ ...f, telefono: e.target.value.replace(/\D/g, '') }))}
               placeholder="3001234567" />
           </div>
           <div>
