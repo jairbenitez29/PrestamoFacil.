@@ -169,7 +169,7 @@ export function CapitalPage() {
                   key={tipo}
                   type="button"
                   onClick={() => setFormulario(f => ({ ...f, tipo }))}
-                  className={`py-3 rounded-xl border font-medium text-sm capitalize transition-all ${
+                  className={`py-3 rounded-xl border font-medium text-sm capitalize transition-all flex items-center justify-center gap-2 ${
                     formulario.tipo === tipo
                       ? tipo === 'ingreso'
                         ? 'bg-emerald-500/20 border-emerald-500/40 text-emerald-400'
@@ -178,8 +178,8 @@ export function CapitalPage() {
                   }`}
                 >
                   {tipo === 'ingreso'
-                    ? <><ArrowUp size={14} /> Ingreso</>
-                    : <><ArrowDown size={14} /> Egreso</>
+                    ? <><ArrowUp size={14} /><span>Ingreso</span></>
+                    : <><ArrowDown size={14} /><span>Egreso</span></>
                   }
                 </button>
               ))}
